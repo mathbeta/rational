@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="rational" default="all" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+    <property name="compiler.debug" value="on"/>
+
+    <property name="mvn.home" value="C:/JavaTools/apache-maven-3.3.9"/>
+    <property name="mvn.repos" value="d:/.m2/repository"/>
+
+    <property name="build.home" value="./release"/>
+    <property name="jdkpath" value="${JAVA_HOME}"/>
+    <echo message="java version = ${ant.java.version}"/>
+
+    <path id="maven-ant-tasks.classpath" path="./lib/maven-ant-tasks-2.1.3.jar"/>
+    <typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant"
+             classpathref="maven-ant-tasks.classpath"/>
+
+    <echo>=========================================================</echo>
+    <echo>==========默认Ant Target，将会编译rational组件===========</echo>
+    <echo>=========================================================</echo>
+
+    <property name="common" value="${basedir}/${build.home}/common"/>
+    <property name="common.jar" value="rational-common-1.0.jar"/>
+
+    <property name="master" value="${basedir}/${build.home}/master"/>
+    <property name="master.jar" value="rational-master-1.0.jar"/>
+
+    <property name="minion" value="${basedir}/${build.home}/minion"/>
+    <property name="minion.jar" value="rational-minion-1.0.jar"/>
+
+    <!-- rational all package -->
+    <target name="all" depends="clean,common,master,minion,clean_base"> </target>
+
+    <!-- rational-common -->
+    <target name="common">
+        <property name="common.pom.file" value="./rational-common/pom.xml"/>
+        <property name="common.target.classes" value="./rational-common/target/classes"/>
+        <mkdir dir="${common}"/>
+        <artifact:pom id="common.pom" file="${common.pom.file}"/>
+        <artifact:dependencies filesetId="common.fileset" useScope="">
+            <localrepository path="${mvn.repos}"/>
+            <pom refid="common.pom"/>
+        </artifact:dependencies>
+
+        <jar destfile="${common}/${common.jar}">
+            <fileset dir="${common.target.classes}"/>
+        </jar>
+        <echo message="########  rational-common package successful ################"/>
+    </target>
+
+    <!-- rational-master -->
+    <target name="master">
+        <property name="master.resources" value="./rational-master/src/main/resources/"/>
+        <property name="master.webapp" value="./rational-master/src/main/webapp"/>
+        <property name="master.pom.file" value="./rational-master/pom.xml"/>
+        <property name="master.target.classes" value="./rational-master/target/classes"/>
+        <!-- <property name="master.jar" value="rational-master-1.0.jar"/> -->
+        <property name="master.scripts" value="./rational-master/src/main/resources/bin"/>
+
+
+        <!-- <property name="master" value="${basedir}/${build.home}/rational-master"/> -->
+        <property name="master.bin" value="${master}/bin/"/>
+        <property name="master.lib" value="${master}/lib/"/>
+        <property name="master.sql" value="${master}/sql/"/>
+        <property name="master.dest.resources" value="${master}/resources/"/>
+        <property name="master.dest.webapp" value="${master}/webapp/"/>
+
+        <mkdir dir="${master}"/>
+        <mkdir dir="${master.lib}"/>
+        <mkdir dir="${master.bin}"/>
+
+        <copy todir="${master.sql}">
+            <fileset dir="./rational-master/sql" excludes="**/.svn/**/*.*"/>
+        </copy>
+        <copy todir="${master.bin}">
+            <fileset dir="${master.scripts}" excludes="**/.svn/**/*.*"/>
+        </copy>
+        <copy todir="${master.dest.resources}">
+            <fileset dir="${master.resources}" excludes="**/.svn/**/*.*"/>
+        </copy>
+        <copy todir="${master.dest.webapp}">
+            <fileset dir="${master.webapp}" excludes="**/.svn/**/*.*"/>
+        </copy>
+
+        <artifact:pom id="master.pom" file="${master.pom.file}"/>
+        <artifact:dependencies filesetId="master.fileset" useScope="compile">
+            <localrepository path="${mvn.repos}"/>
+            <pom refid="master.pom"/>
+        </artifact:dependencies>
+
+        <copy todir="${master.lib}">
+            <fileset refid="master.fileset"></fileset>
+            <mapper type="flatten"></mapper>
+        </copy>
+
+        <jar destfile="${master.lib}/${master.jar}">
+            <fileset dir="${master.target.classes}"/>
+        </jar>
+
+
+        <delete file="${master.lib}/${common.jar}"/>
+
+        <copy todir="${master.lib}">
+            <fileset dir="${common}">
+                <include name="${common.jar}"/>
+            </fileset>
+        </copy>
+
+        <delete dir="${master.dest.resources}bin"/>
+        <echo message="########  rational-master  package successful ################"/>
+    </target>
+
+    <!-- rational-minion -->
+    <target name="minion">
+        <property name="minion.resources" value="./rational-minion/src/main/resources/"/>
+        <property name="minion.pom.file" value="./rational-minion/pom.xml"/>
+        <property name="minion.target.classes" value="./rational-minion/target/classes"/>
+        <!-- <property name="minion.jar" value="rational-minion-1.0.jar"/> -->
+        <property name="minion.scripts" value="./rational-minion/src/main/resources/bin"/>
+
+        <!-- <property name="minion" value="${basedir}/${build.home}/rational-minion"/> -->
+        <property name="minion.bin" value="${minion}/bin/"/>
+        <property name="minion.lib" value="${minion}/lib/"/>
+        <property name="minion.dest.resources" value="${minion}/resources/"/>
+        <property name="minion.dest.webapp" value="${minion}/webapp/"/>
+
+        <mkdir dir="${minion}"/>
+        <mkdir dir="${minion.lib}"/>
+        <mkdir dir="${minion.bin}"/>
+
+        <copy todir="${minion.bin}">
+            <fileset dir="${minion.scripts}" excludes="**/.svn/**/*.*"/>
+        </copy>
+
+        <copy todir="${minion.dest.resources}">
+            <fileset dir="${minion.resources}" excludes="**/.svn/**/*.*"/>
+        </copy>
+
+        <artifact:pom id="minion.pom" file="${minion.pom.file}"/>
+        <artifact:dependencies filesetId="minion.fileset" useScope="compile">
+            <localrepository path="${mvn.repos}"/>
+            <pom refid="minion.pom"/>
+        </artifact:dependencies>
+
+        <copy todir="${minion.lib}">
+            <fileset refid="minion.fileset"></fileset>
+            <mapper type="flatten"></mapper>
+        </copy>
+
+        <jar destfile="${minion.lib}/${minion.jar}">
+            <fileset dir="${minion.target.classes}"/>
+        </jar>
+
+        <delete file="${minion.lib}/${common.jar}"/>
+
+        <copy todir="${minion.lib}">
+            <fileset dir="${common}">
+                <include name="${common.jar}"/>
+            </fileset>
+        </copy>
+
+        <delete dir="${minion.dest.resources}bin"/>
+        <echo message="########  rational-minion  package successful ################"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.home}"/>
+        <mkdir dir="${build.home}"/>
+    </target>
+
+    <target name="clean_base">
+        <delete dir="${common}"/>
+    </target>
+
+
+</project>

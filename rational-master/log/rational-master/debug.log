@@ -1,0 +1,92 @@
+[2017-04-16 21:11:35,828][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:11:35,859][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:45,453][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:11:45,500][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000005
+[2017-04-16 21:11:45,500][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:47,515][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:49,515][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:51,515][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:53,515][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:55,531][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:57,531][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:11:59,531][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:12:01,531][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:12:03,546][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:12:05,546][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:12:07,546][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:12:09,562][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:12:11,562][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000005is watching/com.mathbeta.rational/master0000000004
+[2017-04-16 21:13:12,921][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:13:12,968][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:17,000][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:13:17,031][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000007
+[2017-04-16 21:13:17,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:19,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:21,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:23,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:25,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:27,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:29,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:31,078][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:33,078][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:35,078][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:37,078][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:39,078][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:41,093][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:43,093][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:45,109][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:47,125][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:49,125][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:51,125][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:53,140][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:13:55,140][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000007is watching/com.mathbeta.rational/master0000000006
+[2017-04-16 21:14:40,171][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:14:40,234][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000008
+[2017-04-16 21:14:43,296][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:14:43,359][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000009
+[2017-04-16 21:14:43,359][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000009is watching/com.mathbeta.rational/master0000000008
+[2017-04-16 21:14:45,390][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000009is watching/com.mathbeta.rational/master0000000008
+[2017-04-16 21:14:47,390][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000009is watching/com.mathbeta.rational/master0000000008
+[2017-04-16 21:14:49,406][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000009is watching/com.mathbeta.rational/master0000000008
+[2017-04-16 21:14:51,406][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000009is watching/com.mathbeta.rational/master0000000008
+[2017-04-16 21:14:53,406][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000009is watching/com.mathbeta.rational/master0000000008
+[2017-04-16 21:17:25,640][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:17:25,687][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:25,687][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:27,687][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:29,203][DEBUG][utils.LeaderElection]-leader root path existed...
+[2017-04-16 21:17:29,265][DEBUG][utils.LeaderElection]-leader election, I am /com.mathbeta.rational/master0000000011
+[2017-04-16 21:17:29,265][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:29,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:31,265][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:31,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:33,281][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:33,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:35,281][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:35,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:37,281][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:37,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:39,281][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:39,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:41,296][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:41,750][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000010is elected as the leader
+[2017-04-16 21:17:43,296][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:45,296][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011 is watching /com.mathbeta.rational/master0000000010
+[2017-04-16 21:17:46,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,046][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:46,062][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:47,296][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:49,296][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:51,312][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:53,312][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:55,312][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:57,312][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:17:59,312][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:18:01,312][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
+[2017-04-16 21:18:03,328][DEBUG][utils.LeaderElection]-leader election, /com.mathbeta.rational/master0000000011is elected as the leader
