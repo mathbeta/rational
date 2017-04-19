@@ -2,8 +2,7 @@ package com.mathbeta.rational.master.restful.provider;
 
 import com.mathbeta.rational.common.entity.Volume;
 import com.mathbeta.rational.common.utils.ServiceBeanContext;
-import com.mathbeta.rational.master.service.BaseService;
-import com.mathbeta.rational.master.service.VolumeService;
+import com.mathbeta.rational.master.service.impl.VolumeService;
 import io.swagger.annotations.Api;
 
 import javax.ws.rs.Path;
@@ -13,9 +12,9 @@ import javax.ws.rs.Path;
  */
 @Api(value = "volume", description = "volume provider")
 @Path("volume")
-public class VolumeProvider extends BaseProvider<Volume> {
+public class VolumeProvider extends BaseProvider<Volume, VolumeService> {
     @Override
-    protected BaseService getService() {
+    protected VolumeService getService() {
         return (VolumeService) ServiceBeanContext.getInstance().getBean("volumeService");
     }
 }

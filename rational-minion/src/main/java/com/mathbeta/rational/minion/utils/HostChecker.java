@@ -13,6 +13,10 @@ public class HostChecker {
         checkDocker();
     }
 
+    /**
+     * 检查docker版本
+     * @throws Exception
+     */
     private static void checkDocker() throws Exception {
         Map<String, List<String>> info = DockerUtil.getVersion();
         if (info.containsKey(ShellUtil.OUTPUT_STREAM_KEY)) {
@@ -20,8 +24,8 @@ public class HostChecker {
             String[] client = out.get(1).split("[ \t]");
             String[] server = out.get(9).split("[ \t]");
             System.out.println("docker version:");
-            System.out.println("\tClient " + client);
-            System.out.println("\tServer " + server);
+            System.out.println("\tClient " + client[client.length - 1]);
+            System.out.println("\tServer " + server[server.length - 1]);
         } else {
             throw new Exception("failed to get docker version" + JSON.toJSONString(info.get(ShellUtil.ERROR_STREAM_KEY)));
         }

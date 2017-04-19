@@ -2,8 +2,7 @@ package com.mathbeta.rational.master.restful.provider;
 
 import com.mathbeta.rational.common.entity.App;
 import com.mathbeta.rational.common.utils.ServiceBeanContext;
-import com.mathbeta.rational.master.service.AppService;
-import com.mathbeta.rational.master.service.BaseService;
+import com.mathbeta.rational.master.service.impl.AppService;
 import io.swagger.annotations.Api;
 
 import javax.ws.rs.Path;
@@ -13,7 +12,7 @@ import javax.ws.rs.Path;
  */
 @Api(value = "app", description = "app provider")
 @Path("app")
-public class AppProvider extends BaseProvider<App> {
+public class AppProvider extends BaseProvider<App, AppService> {
     // assign networks
 
 
@@ -25,7 +24,7 @@ public class AppProvider extends BaseProvider<App> {
 
 
     @Override
-    protected BaseService getService() {
+    protected AppService getService() {
         return (AppService) ServiceBeanContext.getInstance().getBean("appService");
     }
 }

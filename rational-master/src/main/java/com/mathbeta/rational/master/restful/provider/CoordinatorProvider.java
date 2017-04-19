@@ -2,8 +2,7 @@ package com.mathbeta.rational.master.restful.provider;
 
 import com.mathbeta.rational.common.entity.Coordinator;
 import com.mathbeta.rational.common.utils.ServiceBeanContext;
-import com.mathbeta.rational.master.service.BaseService;
-import com.mathbeta.rational.master.service.CoordinatorService;
+import com.mathbeta.rational.master.service.impl.CoordinatorService;
 import io.swagger.annotations.Api;
 
 import javax.ws.rs.Path;
@@ -13,9 +12,9 @@ import javax.ws.rs.Path;
  */
 @Api(value = "coordinator", description = "coordinator provider")
 @Path("coordinator")
-public class CoordinatorProvider extends BaseProvider<Coordinator> {
+public class CoordinatorProvider extends BaseProvider<Coordinator, CoordinatorService> {
     @Override
-    protected BaseService getService() {
+    protected CoordinatorService getService() {
         return (CoordinatorService) ServiceBeanContext.getInstance().getBean("coordinatorService");
     }
 }

@@ -20,6 +20,11 @@
         t.id,t.cluster_id,t.ip,t.port,t.hostname,t.user_name,t.passwd,t.create_time,t.daemon_started
     </sql>
 
+    <!-- 更新host registry -->
+    <update id="updateHostRegistry">
+        update ra_host set registry_id=#{registryId} where id=#{hostId}
+    </update>
+
     <!-- 保存 -->
     <insert id="save" parameterType="com.mathbeta.rational.common.entity.Host">
 		insert into ra_host

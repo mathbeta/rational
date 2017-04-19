@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.mathbeta.rational.common.entity.BaseEntity;
 import com.mathbeta.rational.common.entity.Message;
 import com.mathbeta.rational.common.entity.Page;
-import com.mathbeta.rational.master.service.BaseService;
+import com.mathbeta.rational.master.service.impl.BaseService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Created by 147458 on 2017/4/13.
  */
-public abstract class BaseProvider<Entity extends BaseEntity> {
+public abstract class BaseProvider<Entity extends BaseEntity, Service extends BaseService> {
     private static Logger logger = LoggerFactory.getLogger(BaseProvider.class);
 
     /**
@@ -26,7 +26,7 @@ public abstract class BaseProvider<Entity extends BaseEntity> {
      *
      * @return
      */
-    protected abstract BaseService getService();
+    protected abstract Service getService();
 
     @ApiOperation(value = "save entity in db", notes = "save entity", response = Message.class)
     @POST

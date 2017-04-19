@@ -2,8 +2,7 @@ package com.mathbeta.rational.master.restful.provider;
 
 import com.mathbeta.rational.common.entity.Registry;
 import com.mathbeta.rational.common.utils.ServiceBeanContext;
-import com.mathbeta.rational.master.service.BaseService;
-import com.mathbeta.rational.master.service.RegistryService;
+import com.mathbeta.rational.master.service.impl.RegistryService;
 import io.swagger.annotations.Api;
 
 import javax.ws.rs.Path;
@@ -13,9 +12,9 @@ import javax.ws.rs.Path;
  */
 @Api(value = "registry", description = "registry provider")
 @Path("registry")
-public class RegistryProvider extends BaseProvider<Registry> {
+public class RegistryProvider extends BaseProvider<Registry, RegistryService> {
     @Override
-    protected BaseService getService() {
+    protected RegistryService getService() {
         return (RegistryService) ServiceBeanContext.getInstance().getBean("registryService");
     }
 }

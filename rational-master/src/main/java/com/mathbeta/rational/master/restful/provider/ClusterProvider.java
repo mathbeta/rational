@@ -2,8 +2,7 @@ package com.mathbeta.rational.master.restful.provider;
 
 import com.mathbeta.rational.common.entity.Cluster;
 import com.mathbeta.rational.common.utils.ServiceBeanContext;
-import com.mathbeta.rational.master.service.BaseService;
-import com.mathbeta.rational.master.service.ClusterService;
+import com.mathbeta.rational.master.service.impl.ClusterService;
 import io.swagger.annotations.Api;
 
 import javax.ws.rs.Path;
@@ -13,9 +12,9 @@ import javax.ws.rs.Path;
  */
 @Api(value = "cluster", description = "cluster provider")
 @Path("cluster")
-public class ClusterProvider extends BaseProvider<Cluster> {
+public class ClusterProvider extends BaseProvider<Cluster,ClusterService> {
     @Override
-    protected BaseService getService() {
+    protected ClusterService getService() {
         return (ClusterService) ServiceBeanContext.getInstance().getBean("clusterService");
     }
 }
