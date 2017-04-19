@@ -1,3 +1,0 @@
-C:\Java\jdk1.8.0_112\bin\java -Dmaven.home=C:\JavaTools\apache-maven-3.3.9 -Dclassworlds.conf=C:\JavaTools\apache-maven-3.3.9\bin\m2.conf -Didea.launcher.port=7532 "-Didea.launcher.bin.path=C:\Program Files\JetBrains\IntelliJ IDEA 14.0.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\JavaTools\apache-maven-3.3.9\boot\plexus-classworlds-2.5.2.jar;C:\Program Files\JetBrains\IntelliJ IDEA 14.0.3\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher -Didea.version=14.0.3 -s C:\JavaTools\apache-maven-3.3.9\conf\settings.xml -Dmaven.repo.local=D:\.m2\repository clean
--Dmaven.multiModuleProjectDirectory system property is not set. Check $M2_HOME environment variable and mvn script match.
-Process finished with exit code 1
