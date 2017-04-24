@@ -1,0 +1,13 @@
+rational using zookeeper to elect master leader, auto discover minions, send master commands to minions and minion responses.
+
+here is the zk tree nodes in the rational system:
+
+/com.mathbeta.rational
+    /master
+        /leader             for master leader election, child nodes are ephemeral
+
+    /minion
+        /minions            for minion auto discovery, child nodes are ephemeral
+        /commands
+            /request        for master sending commands to minions, one child node for each minion
+            /response        for minion sending command execution result to master, one child node for each minion
