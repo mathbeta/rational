@@ -1,0 +1,6 @@
+2017-04-24 21:37:49.750 [DEBUG] [BaseJdbcLogger.debug:139] - ==>  Preparing: select t.id,t.cluster_id,t.ip,t.port,t.hostname,t.user_name,t.passwd,t.create_time,t.daemon_started from ra_host t order by t.create_time desc 
+2017-04-24 21:37:49.843 [DEBUG] [BaseJdbcLogger.debug:139] - ==> Parameters: 
+2017-04-24 21:37:50.031 [DEBUG] [BaseJdbcLogger.debug:139] - <==      Total: 1
+2017-04-24 21:54:49.062 [DEBUG] [BaseJdbcLogger.debug:139] - ==>  Preparing: select t.id,t.cluster_id,t.ip,t.port,t.hostname,t.user_name,t.passwd,t.create_time,t.daemon_started from ra_host t order by t.create_time desc 
+2017-04-24 21:54:49.125 [DEBUG] [BaseJdbcLogger.debug:139] - ==> Parameters: 
+2017-04-24 21:54:49.171 [DEBUG] [BaseJdbcLogger.debug:139] - <==      Total: 1

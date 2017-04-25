@@ -69,14 +69,14 @@ public class CommandUtil {
                 public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
                     String path = pathChildrenCacheEvent.getData().getPath();
                     String ip = path.substring(path.lastIndexOf("/") + 1);
-//                    byte[] b = ZkUtil.getNode(framework, "/minion/minions/" + ip);
-//                    String conf = new String(b);
+                    byte[] b = ZkUtil.getNode(framework, "/minion/minions/" + ip);
+                    String conf = new String(b);
 
                     PathChildrenCacheEvent.Type type = pathChildrenCacheEvent.getType();
                     if (type == PathChildrenCacheEvent.Type.CHILD_ADDED) {
-                        logger.info("minion registered to masters, ip is {}, minion info: {}", ip);
+                        logger.info("minion registered to masters, ip is {}, minion info: {}", ip, conf);
                     } else if (type == PathChildrenCacheEvent.Type.CHILD_REMOVED) {
-                        logger.info("minion was removed from masters, ip is {}, minion info: {}", ip);
+                        logger.info("minion was removed from masters, ip is {}, minion info: {}", ip, conf);
                     }
                 }
             });

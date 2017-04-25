@@ -1,6 +1,7 @@
 package com.mathbeta.rational.minion.main;
 
 import com.google.common.collect.Maps;
+import com.mathbeta.rational.common.jetty.StartJetty;
 import com.mathbeta.rational.common.utils.DateUtil;
 import com.mathbeta.rational.minion.utils.CommandUtil;
 import com.mathbeta.rational.minion.utils.HostChecker;
@@ -29,6 +30,7 @@ public class StartMinion {
     }
 
     private static void start() {
+        StartJetty.getInstance().startJetty();
         // register the minion info for master auto discovery
         try {
             String ip = HostChecker.getIp();

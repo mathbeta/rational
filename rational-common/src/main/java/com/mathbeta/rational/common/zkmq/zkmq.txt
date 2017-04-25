@@ -1,0 +1,11 @@
+zkmq是一个基于zookeeper的消息队列。
+
+发消息时，发送端在/<ns>/<queue-name>/req下创建zk node，其值为需要发送的消息，node名称为消息id。
+接收端监听/<ns>/<queue-name>/req子节点创建事件，当有新节点被创建时，获取节点名称和值，交给注册到该
+queue下的listener处理，并得到返回结果，然后在/<ns>/<queue-name>/res下创建zk node，其值为消息的处理结果，node名称为请求消息的id。
+发送端会监听/<ns>/<queue-name>/res子节点创建事件，和接收端相同的逻辑，在有新节点被创建时，获取节点的值，得到响应。
+发送端在得到响应后，会删除节点/<ns>/<queue-name>/req/<message-id>和/<ns>/<queue-name>/res/<message-id>，以防止同一个zk node下子节点过多。
+
+上述消息发送接收在zk上测试通过。但是在同一个queue下发送消息过多时，会导致zk无响应（测试发送消息大约5800多条）。
+
+由于上述问题存在，因而该zkmq设计不能处理大消息量的压力。需要进一步优化改进。

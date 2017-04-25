@@ -15,7 +15,6 @@
         <module>rational-master</module>
         <module>rational-minion</module>
         <module>rational-common</module>
-        <module>rational-zkmq</module>
     </modules>
 
 

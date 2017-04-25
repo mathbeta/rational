@@ -19,11 +19,11 @@
     </filter-mapping>
 -->
 
-    <servlet>
+    <!--<servlet>
         <servlet-name>operate</servlet-name>
         <servlet-class>com.mathbeta.rational.master.servlet.DispatchServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
+    </servlet>-->
 
     <!--<servlet-mapping>
         <servlet-name>operate</servlet-name>
@@ -35,7 +35,7 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.mathbeta.rational.master.restful.provider,io.swagger.jaxrs.listing</param-value>
+            <param-value>com.mathbeta.rational.minion.restful.provider,io.swagger.jaxrs.listing</param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
@@ -58,7 +58,7 @@
         </init-param>
         <init-param>
             <param-name>swagger.api.basepath</param-name>
-            <param-value>http://127.0.0.1:9900/master/rest</param-value>
+            <param-value>http://127.0.0.1:9901/minion/rest</param-value>
         </init-param>
         <load-on-startup>3</load-on-startup>
     </servlet>
@@ -66,25 +66,5 @@
         <servlet-name>Jersey2Config</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>-->
-
-   <!-- <servlet>
-        <servlet-name>tempDirUploadHandleServlet</servlet-name>
-        <servlet-class>com.iov.servlet.TempDirUploadHandleServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>tempDirUploadHandleServlet</servlet-name>
-        <url-pattern>/rest/base/servlet/tempDirUploadHandleServlet</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>progressBarServlet</servlet-name>
-        <servlet-class>com.iov.servlet.ProgressBarServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>progressBarServlet</servlet-name>
-        <url-pattern>/servlet/progressBarServlet</url-pattern>
-    </servlet-mapping>-->
-
 
 </web-app>
