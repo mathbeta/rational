@@ -1,2 +1,2 @@
 # rational
-a docker cluster management project
+A cloud-computing cluster management project.
