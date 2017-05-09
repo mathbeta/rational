@@ -3,6 +3,7 @@ package com.mathbeta.rational.master.utils;
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
 import com.mathbeta.rational.common.entity.Host;
+import com.mathbeta.rational.common.entity.Minion;
 import com.mathbeta.rational.common.utils.*;
 import com.mathbeta.rational.master.service.impl.HostService;
 import org.apache.curator.framework.CuratorFramework;
@@ -14,6 +15,8 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 17-4-22.
@@ -24,6 +27,9 @@ public class CommandUtil {
     private static CuratorFramework framework = ZkUtil.getFramework(ConfigHelper.getValue("zookeeper.url"), Constants.ZK_NS);
     private static String[] parentNodes = {"/master", "/minion/minions", "/minion/commands/request", "/minion/commands/response"};
     private static Map<String, String> responseMap = Maps.newHashMap();
+
+    private static Map<String, Minion> minionMap = Maps.newConcurrentMap();
+    private static ExecutorService threadPool = Executors.newCachedThreadPool();
 
     // ensure the framework can be closed properly
     public static void close() {
@@ -67,17 +73,27 @@ public class CommandUtil {
             PathChildrenCache cache = ZkUtil.watchChildren(framework, "/minion/minions", new PathChildrenCacheListener() {
                 @Override
                 public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent pathChildrenCacheEvent) throws Exception {
-                    String path = pathChildrenCacheEvent.getData().getPath();
-                    String ip = path.substring(path.lastIndexOf("/") + 1);
-                    byte[] b = ZkUtil.getNode(framework, "/minion/minions/" + ip);
-                    String conf = new String(b);
+                    threadPool.submit(new Thread() {
+                        public void run() {
+                            String path = pathChildrenCacheEvent.getData().getPath();
+                            String ip = path.substring(path.lastIndexOf("/") + 1);
+                            String conf = null;
+                            try {
+                                byte[] b = ZkUtil.getNode(framework, "/minion/minions/" + ip);
+                                conf = new String(b);
+                            } catch (Exception e) {
+                                logger.error("failed to get node [{}] data: {}", ip, e);
+                            }
+                            minionMap.put(ip, JSON.parseObject(conf, Minion.class));
 
-                    PathChildrenCacheEvent.Type type = pathChildrenCacheEvent.getType();
-                    if (type == PathChildrenCacheEvent.Type.CHILD_ADDED) {
-                        logger.info("minion registered to masters, ip is {}, minion info: {}", ip, conf);
-                    } else if (type == PathChildrenCacheEvent.Type.CHILD_REMOVED) {
-                        logger.info("minion was removed from masters, ip is {}, minion info: {}", ip, conf);
-                    }
+                            PathChildrenCacheEvent.Type type = pathChildrenCacheEvent.getType();
+                            if (type == PathChildrenCacheEvent.Type.CHILD_ADDED) {
+                                logger.info("minion registered to masters, ip is {}, minion info: {}", ip, conf);
+                            } else if (type == PathChildrenCacheEvent.Type.CHILD_REMOVED) {
+                                logger.info("minion was removed from masters, ip is {}, minion info: {}", ip, conf);
+                            }
+                        }
+                    });
                 }
             });
         } catch (Exception e) {
@@ -113,5 +129,21 @@ public class CommandUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getMinionPort(String ip) {
+        Minion minion = minionMap.get(ip);
+        if (minion != null) {
+            return minion.getPort();
+        }
+        return "";
+    }
+
+    public static String getMinionAuth(String ip) {
+        Minion minion = minionMap.get(ip);
+        if (minion != null) {
+            return minion.getAuth();
+        }
+        return "";
     }
 }

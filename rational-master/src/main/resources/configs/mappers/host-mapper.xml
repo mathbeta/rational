@@ -17,7 +17,7 @@
 
 
     <sql id="column">
-        t.id,t.cluster_id,t.ip,t.port,t.hostname,t.user_name,t.passwd,t.create_time,t.daemon_started
+        t.id,t.cluster_id,t.ip,t.port,t.hostname,t.user_name,t.passwd,t.create_time,t.daemon_started,t.registry_id
     </sql>
 
     <!-- 更新host registry -->

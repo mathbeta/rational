@@ -91,8 +91,12 @@ public class CommandUtil {
 
     public static void register(String ip, Map<String, Object> info) {
         try {
+            String node = "/minion/minions/" + ip;
             String conf = JSON.toJSONString(info);
-            String path = ZkUtil.createNode(framework, "/minion/minions/" + ip, conf.getBytes(), CreateMode.EPHEMERAL);
+            if (ZkUtil.existNode(framework, node)) {
+                ZkUtil.deleteNode(framework, node);
+            }
+            String path = ZkUtil.createNode(framework, node, conf.getBytes(), CreateMode.EPHEMERAL);
             logger.info("register minion to masters, path is {}, ip is {}, minion info: {}", path, ip, conf);
         } catch (Exception e) {
             e.printStackTrace();

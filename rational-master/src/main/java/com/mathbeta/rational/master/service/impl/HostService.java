@@ -3,6 +3,8 @@ package com.mathbeta.rational.master.service.impl;
 import com.mathbeta.rational.common.entity.Host;
 import com.mathbeta.rational.common.entity.Message;
 import com.mathbeta.rational.common.entity.Registry;
+import com.mathbeta.rational.common.restful.RestfulClientAgent;
+import com.mathbeta.rational.common.utils.MapUtil;
 import com.mathbeta.rational.master.mapper.HostMapper;
 import com.mathbeta.rational.master.mapper.RegistryMapper;
 import com.mathbeta.rational.master.service.IHostService;
@@ -45,7 +47,14 @@ public class HostService extends BaseService<Host, HostMapper> implements IHostS
     @Override
     public Message operateDocker(String op, String hostId) throws Exception {
         Host host = hostMapper.queryById(hostId);
-        String response = CommandUtil.operateDocker(op, host.getIp());
+
+        if (host == null) {
+            return Message.build(String.format("failed to find the host with id [%s}", hostId), false, "");
+        }
+        String ip = host.getIp();
+        String response = (String) RestfulClientAgent.getAgent().postOrPut("post", new String[]{"http://", ip, ":", CommandUtil.getMinionPort(ip), "/minion/rest/docker/", op},
+                MapUtil.buildHashMap("auth", CommandUtil.getMinionAuth(ip)));
+//        String response = CommandUtil.operateDocker(op, host.getIp());
         return Message.build(response, true, "");
     }
 }

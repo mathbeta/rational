@@ -2,6 +2,7 @@ package com.mathbeta.rational.minion.utils;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.mathbeta.rational.common.utils.ConfigHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,12 +13,15 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 17-4-16.
  */
 public class ShellUtil {
     private static Logger logger = LoggerFactory.getLogger(ShellUtil.class);
+    private static ExecutorService pool = Executors.newFixedThreadPool(Integer.parseInt(ConfigHelper.getValue("exec.pool.size")));
     public static final String OUTPUT_STREAM_KEY = "output";
     public static final String ERROR_STREAM_KEY = "error";
 
@@ -29,8 +33,8 @@ public class ShellUtil {
             InputStream errorStream = process.getErrorStream();
             InputStream inputStream = process.getInputStream();
             CountDownLatch latch = new CountDownLatch(2);
-            new StreamReader(inputStream, latch, output).start();
-            new StreamReader(errorStream, latch, error).start();
+            pool.submit(new StreamReader(inputStream, latch, output));
+            pool.submit(new StreamReader(errorStream, latch, error));
 
             latch.await();
             errorStream.close();
@@ -62,9 +66,12 @@ public class ShellUtil {
                 while ((str = br.readLine()) != null) {
                     result.add(str);
                 }
-                latch.countDown();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (latch != null) {
+                    latch.countDown();
+                }
             }
         }
     }

@@ -2,6 +2,7 @@ package com.mathbeta.rational.minion.main;
 
 import com.google.common.collect.Maps;
 import com.mathbeta.rational.common.jetty.StartJetty;
+import com.mathbeta.rational.common.utils.ConfigHelper;
 import com.mathbeta.rational.common.utils.DateUtil;
 import com.mathbeta.rational.minion.utils.CommandUtil;
 import com.mathbeta.rational.minion.utils.HostChecker;
@@ -33,11 +34,15 @@ public class StartMinion {
         StartJetty.getInstance().startJetty();
         // register the minion info for master auto discovery
         try {
-            String ip = HostChecker.getIp();
+            String ip = HostChecker.getIpAddress();
+//            String ip = HostChecker.getIp();
             // mem, cpu...
             Map<String,Object> info = Maps.newHashMap();
-            info.put("cpus", 2);
-            info.put("mem",2048);
+            info.putAll(HostChecker.getConf());
+//            info.put("cpus", 2);
+//            info.put("mem",2048);
+            info.put("auth", HostChecker.RESTFUL_AUTHORIZATION_CODE);
+            info.put("port", ConfigHelper.getJettyParameter("server.port"));
             CommandUtil.register(ip,info);
         } catch (Exception e) {
             e.printStackTrace();
