@@ -1,1 +1,0 @@
-2017-05-09 16:48:05.311 [ERROR] [CommandUtil.register:99] - failed to register minion to master [172.31.80.38]: org.apache.zookeeper.KeeperException$NodeExistsException: KeeperErrorCode = NodeExists for /com.mathbeta.rational/minion/minions/172.31.80.38
