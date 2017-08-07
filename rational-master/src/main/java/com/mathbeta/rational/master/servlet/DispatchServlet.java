@@ -24,9 +24,9 @@ public class DispatchServlet extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 //        InitReve initReve = new InitReve();
 		try {
-			ServiceBeanContext.getInstance().loadContext("configs/applicationContext.xml");
-            CommandUtil.createZkNodes();
-            CommandUtil.listenMinions();
+//			ServiceBeanContext.getInstance().loadContext("configs/applicationContext.xml");
+//            CommandUtil.createZkNodes();
+//            CommandUtil.listenMinions();
 //			initReve.init();
 		} catch (Exception e) {
 			log.error("启动初始化applicationContext.xml失败",e);

@@ -19,7 +19,7 @@ public class RestJsonMapperProvider implements ContextResolver<ObjectMapper> {
         defaultObjectMapper = new ObjectMapper();
         defaultObjectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
         defaultObjectMapper.configure(SerializationFeature.FAIL_ON_SELF_REFERENCES, true);
-        defaultObjectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"));
+        defaultObjectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         defaultObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 

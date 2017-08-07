@@ -69,6 +69,20 @@ public abstract class BaseProvider<Entity extends BaseEntity, Service extends Ba
         }
     }
 
+    @ApiOperation(value = "count entities from db", notes = "count entities", response = List.class)
+    @POST
+    @Path("countByParams")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message countByParams(@ApiParam(value = "a param json string", required = true) Map<String, Object> params) {
+        try {
+            return Message.build("", true, this.getService().countByParams(params));
+        } catch (Exception e) {
+            logger.error("failed to query all entity", e);
+            return Message.build(e.getMessage(), false, null);
+        }
+    }
+
     @ApiOperation(value = "query entities from db by page", notes = "query entities by page", response = Page.class)
     @POST
     @Path("queryByPage")

@@ -80,6 +80,24 @@ public abstract class BaseService<Entity extends BaseEntity, Mapper extends Base
     }
 
     /**
+     * 根据查询条件查询所有记录数
+     *
+     * @param params
+     * @return
+     */
+    public int countByParams(Map<String, Object> params) throws Exception {
+        try {
+            if (params == null) {
+                params = Maps.newHashMap();
+            }
+            return this.getMapper().queryTotal(params);
+        } catch (Exception e) {
+            logger.error("failed to query entities by params", e);
+            throw e;
+        }
+    }
+
+    /**
      * 根据id查询单个记录
      *
      * @param id

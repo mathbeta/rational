@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
  */
 @Api(value = "cluster", description = "cluster provider")
 @Path("cluster")
-public class ClusterProvider extends BaseProvider<Cluster,ClusterService> {
+public class ClusterProvider extends BaseProvider<Cluster, ClusterService> {
     @Override
     protected ClusterService getService() {
         return (ClusterService) ServiceBeanContext.getInstance().getBean("clusterService");

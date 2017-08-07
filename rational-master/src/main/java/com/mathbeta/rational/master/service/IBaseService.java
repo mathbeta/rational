@@ -17,6 +17,8 @@ public interface IBaseService<Entity extends BaseEntity> {
 
     List<Entity> queryByParams(Map<String, Object> params) throws Exception;
 
+    int countByParams(Map<String, Object> params) throws Exception;
+
     Entity queryById(String id) throws Exception;
 
     Message deleteByIds(String ids) throws Exception;

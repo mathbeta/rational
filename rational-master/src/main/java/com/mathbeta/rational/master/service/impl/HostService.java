@@ -49,7 +49,7 @@ public class HostService extends BaseService<Host, HostMapper> implements IHostS
         Host host = hostMapper.queryById(hostId);
 
         if (host == null) {
-            return Message.build(String.format("failed to find the host with id [%s}", hostId), false, "");
+            return Message.build(String.format("failed to find the host with id [%s]", hostId), false, "");
         }
         String ip = host.getIp();
         String response = (String) RestfulClientAgent.getAgent().postOrPut("post", new String[]{"http://", ip, ":", CommandUtil.getMinionPort(ip), "/minion/rest/docker/", op},
